@@ -1,87 +1,108 @@
 [
   {
-    "objectID": "sources.html",
-    "href": "sources.html",
-    "title": "Sources and reading",
+    "objectID": "lectures/lecture-01.html",
+    "href": "lectures/lecture-01.html",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
     "section": "",
-    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+    "text": "After this lecture, you should be able to:\n\nIdentify the state and control variables of a system.\nFormulate control constraints.\nSpecify initial and terminal conditions.\nDistinguish a feasible control from an optimal control.\nFormulate a minimum-time problem.\nRewrite a second-order controlled equation as a first-order system."
   },
   {
-    "objectID": "sources.html#foundational-reading",
-    "href": "sources.html#foundational-reading",
-    "title": "Sources and reading",
+    "objectID": "lectures/lecture-01.html#learning-objectives",
+    "href": "lectures/lecture-01.html#learning-objectives",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
     "section": "",
-    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+    "text": "After this lecture, you should be able to:\n\nIdentify the state and control variables of a system.\nFormulate control constraints.\nSpecify initial and terminal conditions.\nDistinguish a feasible control from an optimal control.\nFormulate a minimum-time problem.\nRewrite a second-order controlled equation as a first-order system."
   },
   {
-    "objectID": "sources.html#differential-games",
-    "href": "sources.html#differential-games",
-    "title": "Sources and reading",
-    "section": "Differential games",
-    "text": "Differential games\n\nTamer Başar and Geert Jan Olsder — Dynamic Noncooperative Game Theory\nReference for dynamic games, information patterns, equilibrium concepts, and pursuit–evasion.\n\n\nRufus Isaacs — Differential Games\nClassical geometric perspective on differential games and pursuit–evasion.\n\n\nN. N. Krasovskii and A. I. Subbotin — Game-Theoretical Control Problems\nReference for positional strategies and guaranteed outcomes.\n\n\nA. A. Chikrii — Conflict-Controlled Processes\nReference for resolving functions, constructive pursuit, and multiplayer problems.\n\n\nB. N. Pshenichnyi and V. V. Ostapenko — Differential Games\nCompanion reference for the constructive pursuit tradition."
+    "objectID": "lectures/lecture-01.html#state-and-control",
+    "href": "lectures/lecture-01.html#state-and-control",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "2 1. State and control",
+    "text": "2 1. State and control\nWhen we have optimal control problem usually we are working with some object depending on time. At each moment of time this object fully determined by parameters $ (x{1}(t),,x{n}(t))$, which can be coordinates of position, components of velocity etc.\nVector \\(\\mathbf{x}(t)\\) is called the phase state of object: \\[\n\\mathbf{x}(t)=\\bigl(x^{1}(t),\\ldots,x^{n}(t)\\bigr)\n\\]\nWe also imply that we can influence the process with some function, usually called control. The control represents quantities that we may choose:\n\\[\n\\mathbf{u}(t)=\\bigl(u^{1}(t),\\ldots,u^{m}(t)\\bigr)\n\\]\nIt is natural to think that current state of the system depends on previous values of \\(\\mathbf{u}(t)\\) and does not depend on future control.\nIn this course we will assume a dynamic controlled system has the form:\n\\[\n\\dot{\\mathbf{x}}=f(t,\\mathbf{x},\\mathbf{u}).\n\\tag{1}\\]\nOnce a control and an initial condition are specified, we obtain an initial-value problem, whre trajectory is a solution of differential equation\n\\[\n\\dot{\\mathbf{x}(t)}=f(t,\\mathbf{x}(t),\\mathbf{u}(t)).\n\\]\n\n\n\n\n\n\nNoteStanding assumption\n\n\n\nIn the examples considered here, we assume that the chosen control produces a well-defined, unique trajectory on the interval under consideration."
   },
   {
-    "objectID": "sources.html#pursuitevasion-survey",
-    "href": "sources.html#pursuitevasion-survey",
-    "title": "Sources and reading",
-    "section": "Pursuit–evasion survey",
-    "text": "Pursuit–evasion survey\nIsaac E. Weintraub, Meir Pachter, and Eloy Garcia, An Introduction to Pursuit-evasion Differential Games.\nUsed as a map of pursuit–evasion problems and a source of detailed cooperative-pursuit examples.\narXiv record"
+    "objectID": "lectures/lecture-01.html#admissible-controls",
+    "href": "lectures/lecture-01.html#admissible-controls",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "3 2. Admissible controls",
+    "text": "3 2. Admissible controls\nControls cannot usually be chosen arbitrarily.\nWe impose\n\\[\nu(t)\\in U.\n\\tag{2}\\]\nFor a scalar bounded input, an example is\n\\[\nU=[-1,1].\n\\]\nIn this lecture’s computational experiments, we use piecewise-constant controls. More general admissible control classes will be discussed later.\n\n3.1 Question\nWhy should the admissible class of controls be specified before solving an optimization problem?"
   },
   {
-    "objectID": "sources.html#attribution",
-    "href": "sources.html#attribution",
-    "title": "Sources and reading",
-    "section": "Attribution",
-    "text": "Attribution\nIndividual lectures will identify their principal sources, including specific sections or pages where possible.\nAdapted arguments, examples, and exercises will be marked. Numerical experiments and independently developed figures will be distinguished from results established in the literature."
+    "objectID": "lectures/lecture-01.html#initial-and-terminal-conditions",
+    "href": "lectures/lecture-01.html#initial-and-terminal-conditions",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "4 3. Initial and terminal conditions",
+    "text": "4 3. Initial and terminal conditions\nLet \\(M_0\\) be the initial set and \\(M_1\\) the terminal set.\nA transfer must satisfy\n\\[\nx(t_0)\\in M_0,\n\\qquad\nx(t_1)\\in M_1.\n\\tag{3}\\]\nAn important special case is\n\\[\nM_0=\\{x_0\\},\n\\qquad\nM_1=\\{x_{\\mathrm{target}}\\}.\n\\]\nA feasible control satisfies the control constraints and produces a trajectory meeting the boundary conditions.\nFinding a feasible control is not the same as finding an optimal control."
   },
   {
-    "objectID": "notebooks.html",
-    "href": "notebooks.html",
-    "title": "Computational notebooks",
+    "objectID": "lectures/lecture-01.html#the-objective-functional",
+    "href": "lectures/lecture-01.html#the-objective-functional",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "5 4. The objective functional",
+    "text": "5 4. The objective functional\nAmong feasible controls, we may seek one minimizing\n\\[\nJ(u)=\n\\int_{t_0}^{t_1}\nf^0(s,x(s),u(s))\\,ds.\n\\tag{4}\\]\nFor example, choosing \\(f^0=1\\) gives\n\\[\nJ(u)=t_1-t_0.\n\\]\nWhen the terminal time is free, this leads to a minimum-time problem.\n\n5.1 Questions\n\nIs the terminal time fixed or free?\nIs the terminal condition an equality or a set constraint?\nDoes an admissible control necessarily reach the target?\nIs an optimal control guaranteed to exist?"
+  },
+  {
+    "objectID": "lectures/lecture-01.html#example-a-controlled-harmonic-oscillator",
+    "href": "lectures/lecture-01.html#example-a-controlled-harmonic-oscillator",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "6 5. Example: a controlled harmonic oscillator",
+    "text": "6 5. Example: a controlled harmonic oscillator\nConsider the normalized mechanical system\n\\[\n\\ddot y+y=u,\n\\qquad |u|\\le1.\n\\tag{5}\\]\nIntroduce\n\\[\nx_1=y,\n\\qquad\nx_2=\\dot y.\n\\]\nThen\n\\[\n\\begin{aligned}\n\\dot x_1 &= x_2,\\\\\n\\dot x_2 &= -x_1+u.\n\\end{aligned}\n\\tag{6}\\]\nEquivalently,\n\\[\n\\dot x=Ax+Bu,\n\\qquad\nA=\n\\begin{pmatrix}\n0&1\\\\\n-1&0\n\\end{pmatrix},\n\\qquad\nB=\n\\begin{pmatrix}\n0\\\\\n1\n\\end{pmatrix}.\n\\]\nA control problem is to transfer a prescribed initial state \\(x_0\\) to the origin in minimum time."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#computational-experiment",
+    "href": "lectures/lecture-01.html#computational-experiment",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "7 6. Computational experiment",
+    "text": "7 6. Computational experiment\nBefore solving the optimal-control problem, compare several admissible controls:\n\n\\(u(t)=0\\);\n\\(u(t)=1\\);\n\\(u(t)=-1\\);\na control that switches once between its extreme values.\n\nPlot:\n\nThe control history.\nPosition and velocity versus time.\nThe trajectory in the state plane.\n\n\n\n\n\n\n\nWarningInterpretation\n\n\n\nThese experiments compare candidate controls. They do not establish that any candidate is optimal."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#the-linear-minimum-time-problem",
+    "href": "lectures/lecture-01.html#the-linear-minimum-time-problem",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "8 7. The linear minimum-time problem",
+    "text": "8 7. The linear minimum-time problem\nThe course will study linear controlled systems of the form\n\\[\n\\dot x=Ax+u,\n\\qquad u(t)\\in U,\n\\]\nand transfers from an initial set to a terminal set in minimum time.\nIn applications it is also convenient to write\n\\[\n\\dot x=Ax+Bv,\n\\qquad v(t)\\in V.\n\\]\nHere the admissible forcing set in the first notation can be taken as \\(U=BV\\).\nThe next lectures develop the mathematical tools needed to analyze such problems."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#exercises",
+    "href": "lectures/lecture-01.html#exercises",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "9 Exercises",
+    "text": "9 Exercises\n\nRewrite \\(\\ddot y+y=u\\) as a first-order system.\nIdentify the state, control set, initial set, terminal set, and objective for the oscillator problem.\nExplain why \\(u(t)=0\\) cannot transfer a nonzero oscillator state to the origin.\nFor a constant control \\(u=a\\), determine the equilibrium.\nShow that trajectories under constant \\(a\\) satisfy\n\\[\n(x_1-a)^2+x_2^2=\\text{constant}.\n\\]\nCompare a minimum-time objective with a fixed-time minimum-energy objective."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#laboratory",
+    "href": "lectures/lecture-01.html#laboratory",
+    "title": "Lecture 1. Formulation of an Optimal Control Problem",
+    "section": "10 Laboratory",
+    "text": "10 Laboratory\nThe accompanying notebook investigates candidate controls and illustrates the difference between feasibility and optimality."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "The laboratories are being developed for Google Colab. Published notebooks will include mathematical background, code, visualizations, validation checks, and student tasks."
+    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
   },
   {
-    "objectID": "notebooks.html#initial-laboratories",
-    "href": "notebooks.html#initial-laboratories",
-    "title": "Computational notebooks",
-    "section": "Initial laboratories",
-    "text": "Initial laboratories\n\n\n\n\n\n\n\n\nLaboratory\nMain topic\nStatus\n\n\n\n\n1. Linear dynamics\nExact simulation and control trajectories\nPlanned\n\n\n2. Reachable sets\nGeometry, supporting directions, target feasibility\nPlanned\n\n\n3. Minimum-time control\nSwitching curves and analytical benchmarks\nPlanned\n\n\n4. Comparing objectives\nTime, energy, and terminal error\nPlanned"
-  },
-  {
-    "objectID": "notebooks.html#how-to-use-a-notebook",
-    "href": "notebooks.html#how-to-use-a-notebook",
-    "title": "Computational notebooks",
-    "section": "How to use a notebook",
-    "text": "How to use a notebook\n\nRead the mathematical formulation.\nPredict the expected result before running the code.\nRun the reference experiment.\nComplete the numerical checks.\nModify one assumption or parameter.\nExplain what the experiment does and does not establish."
-  },
-  {
-    "objectID": "notebooks.html#reproducibility",
-    "href": "notebooks.html#reproducibility",
-    "title": "Computational notebooks",
-    "section": "Reproducibility",
-    "text": "Reproducibility\nEach published notebook should state:\n\nModel and control constraints.\nInitial conditions and parameters.\nNumerical method and discretization.\nRandom seed, when applicable.\nValidation checks.\nKnown limitations."
-  },
-  {
-    "objectID": "notebooks.html#repository",
-    "href": "notebooks.html#repository",
-    "title": "Computational notebooks",
-    "section": "Repository",
-    "text": "Repository\nNotebook source files will be stored in the course repository."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "about.html#oleksii-ignatenko",
+    "href": "about.html#oleksii-ignatenko",
+    "title": "About",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "objectID": "about.html#about-these-notes",
+    "href": "about.html#about-these-notes",
+    "title": "About",
+    "section": "About these notes",
+    "text": "About these notes\nThese are independently written lecture materials informed by the books and papers listed on the sources page.\nThe aim is not to replace those references, but to provide a coherent learning path supported by examples, visualizations, and reproducible notebooks."
+  },
+  {
+    "objectID": "about.html#links",
+    "href": "about.html#links",
+    "title": "About",
+    "section": "Links",
+    "text": "Links\n\nCourse repository\nCourse outline\nComputational notebooks"
   },
   {
     "objectID": "index.html",
@@ -119,31 +140,136 @@
     "text": "Start here\n\nExplore the preliminary course outline.\nFind computational notebooks.\nBrowse the reading list.\nAbout the lecturer.\n\n\n\n\n\n\n\nNoteWork in progress\n\n\n\nThese materials are being developed incrementally. The course outline is preliminary, and notebooks will be published as they are prepared and checked."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "about.html#oleksii-ignatenko",
-    "href": "about.html#oleksii-ignatenko",
-    "title": "About",
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
     "section": "",
-    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
+    "text": "This is a post with executable code."
   },
   {
-    "objectID": "about.html#about-these-notes",
-    "href": "about.html#about-these-notes",
-    "title": "About",
-    "section": "About these notes",
-    "text": "About these notes\nThese are independently written lecture materials informed by the books and papers listed on the sources page.\nThe aim is not to replace those references, but to provide a coherent learning path supported by examples, visualizations, and reproducible notebooks."
+    "objectID": "notebooks.html",
+    "href": "notebooks.html",
+    "title": "Computational notebooks",
+    "section": "",
+    "text": "The laboratories are being developed for Google Colab. Published notebooks will include mathematical background, code, visualizations, validation checks, and student tasks."
   },
   {
-    "objectID": "about.html#links",
-    "href": "about.html#links",
-    "title": "About",
-    "section": "Links",
-    "text": "Links\n\nCourse repository\nCourse outline\nComputational notebooks"
+    "objectID": "notebooks.html#initial-laboratories",
+    "href": "notebooks.html#initial-laboratories",
+    "title": "Computational notebooks",
+    "section": "Initial laboratories",
+    "text": "Initial laboratories\n\n\n\n\n\n\n\n\nLaboratory\nMain topic\nStatus\n\n\n\n\n1. Linear dynamics\nExact simulation and control trajectories\nPlanned\n\n\n2. Reachable sets\nGeometry, supporting directions, target feasibility\nPlanned\n\n\n3. Minimum-time control\nSwitching curves and analytical benchmarks\nPlanned\n\n\n4. Comparing objectives\nTime, energy, and terminal error\nPlanned"
+  },
+  {
+    "objectID": "notebooks.html#how-to-use-a-notebook",
+    "href": "notebooks.html#how-to-use-a-notebook",
+    "title": "Computational notebooks",
+    "section": "How to use a notebook",
+    "text": "How to use a notebook\n\nRead the mathematical formulation.\nPredict the expected result before running the code.\nRun the reference experiment.\nComplete the numerical checks.\nModify one assumption or parameter.\nExplain what the experiment does and does not establish."
+  },
+  {
+    "objectID": "notebooks.html#reproducibility",
+    "href": "notebooks.html#reproducibility",
+    "title": "Computational notebooks",
+    "section": "Reproducibility",
+    "text": "Reproducibility\nEach published notebook should state:\n\nModel and control constraints.\nInitial conditions and parameters.\nNumerical method and discretization.\nRandom seed, when applicable.\nValidation checks.\nKnown limitations."
+  },
+  {
+    "objectID": "notebooks.html#repository",
+    "href": "notebooks.html#repository",
+    "title": "Computational notebooks",
+    "section": "Repository",
+    "text": "Repository\nNotebook source files will be stored in the course repository."
+  },
+  {
+    "objectID": "sources.html",
+    "href": "sources.html",
+    "title": "Sources and reading",
+    "section": "",
+    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+  },
+  {
+    "objectID": "sources.html#foundational-reading",
+    "href": "sources.html#foundational-reading",
+    "title": "Sources and reading",
+    "section": "",
+    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+  },
+  {
+    "objectID": "sources.html#differential-games",
+    "href": "sources.html#differential-games",
+    "title": "Sources and reading",
+    "section": "Differential games",
+    "text": "Differential games\n\nTamer Başar and Geert Jan Olsder — Dynamic Noncooperative Game Theory\nReference for dynamic games, information patterns, equilibrium concepts, and pursuit–evasion.\n\n\nRufus Isaacs — Differential Games\nClassical geometric perspective on differential games and pursuit–evasion.\n\n\nN. N. Krasovskii and A. I. Subbotin — Game-Theoretical Control Problems\nReference for positional strategies and guaranteed outcomes.\n\n\nA. A. Chikrii — Conflict-Controlled Processes\nReference for resolving functions, constructive pursuit, and multiplayer problems.\n\n\nB. N. Pshenichnyi and V. V. Ostapenko — Differential Games\nCompanion reference for the constructive pursuit tradition."
+  },
+  {
+    "objectID": "sources.html#pursuitevasion-survey",
+    "href": "sources.html#pursuitevasion-survey",
+    "title": "Sources and reading",
+    "section": "Pursuit–evasion survey",
+    "text": "Pursuit–evasion survey\nIsaac E. Weintraub, Meir Pachter, and Eloy Garcia, An Introduction to Pursuit-evasion Differential Games.\nUsed as a map of pursuit–evasion problems and a source of detailed cooperative-pursuit examples.\narXiv record"
+  },
+  {
+    "objectID": "sources.html#attribution",
+    "href": "sources.html#attribution",
+    "title": "Sources and reading",
+    "section": "Attribution",
+    "text": "Attribution\nIndividual lectures will identify their principal sources, including specific sections or pages where possible.\nAdapted arguments, examples, and exercises will be marked. Numerical experiments and independently developed figures will be distinguished from results established in the literature."
+  },
+  {
+    "objectID": "course.html",
+    "href": "course.html",
+    "title": "Course outline",
+    "section": "",
+    "text": "This preliminary outline combines mathematical reading, lectures, and computational laboratories. The pace and selection of advanced topics may change as the materials develop."
+  },
+  {
+    "objectID": "course.html#part-i.-foundations-of-optimal-control",
+    "href": "course.html#part-i.-foundations-of-optimal-control",
+    "title": "Course outline",
+    "section": "Part I. Foundations of optimal control",
+    "text": "Part I. Foundations of optimal control\n\n1. Controlled dynamical systems\n\nStates, controls, and admissible trajectories.\nLinear systems and the solution formula.\nExact propagation under piecewise-constant controls.\n\nLaboratory: simulate the integrator and double integrator; compare analytical and numerical trajectories.\nLecture 1. Formulation of an Optimal Control Problem\n\n\n2. Reachable sets and controllability\n\nFixed-time reachable sets.\nConvex geometry and supporting directions.\nControllability versus bounded-control reachability.\n\nLaboratory: construct reachable sets, explore their boundaries, and test target feasibility.\n\n\n3. Minimum-time control\n\nEarliest arrival at a target.\nBang-bang controls and switching geometry.\nAnalytical reference solutions.\n\nLaboratory: solve the double-integrator minimum-time problem and compare analytical and numerical results.\n\n\n4. Objectives and numerical optimization\n\nMinimum time, minimum energy, and tracking.\nTerminal constraints and penalty formulations.\nDiscretized controls and numerical optimization.\n\nLaboratory: compare objectives under the same dynamics and control constraints."
+  },
+  {
+    "objectID": "course.html#part-ii.-from-optimal-control-to-differential-games",
+    "href": "course.html#part-ii.-from-optimal-control-to-differential-games",
+    "title": "Course outline",
+    "section": "Part II. From optimal control to differential games",
+    "text": "Part II. From optimal control to differential games\n\n5. Adversarial control\n\nPursuer and evader objectives.\nControls, feedback policies, and information patterns.\nGuaranteed outcomes versus optimal outcomes.\n\n\n\n6. Constructive pursuit methods\n\nPontryagin’s direct pursuit methods.\nPshenychnyi and group pursuit.\nChikrii’s resolving-functions approach.\nSufficient capture conditions and guaranteed-time bounds.\n\n\n\n7. Positional strategies\n\nKrasovskii–Subbotin framework.\nStable bridges and extremal aiming.\nNumerical approximation and strategy realization."
+  },
+  {
+    "objectID": "course.html#part-iii.-value-functions-and-computation",
+    "href": "course.html#part-iii.-value-functions-and-computation",
+    "title": "Course outline",
+    "section": "Part III. Value functions and computation",
+    "text": "Part III. Value functions and computation\n\n8. Dynamic programming and Hamilton–Jacobi equations\n\nHJB and HJI formulations.\nBoundary and terminal conditions.\nVerification and nonsmooth value functions.\n\n\n\n9. Strategy evaluation\n\nCommon benchmark problems.\nOpponent collections and approximate best responses.\nSensitivity, discretization, and reproducibility."
+  },
+  {
+    "objectID": "course.html#part-iv.-learning-based-methods",
+    "href": "course.html#part-iv.-learning-based-methods",
+    "title": "Course outline",
+    "section": "Part IV. Learning-based methods",
+    "text": "Part IV. Learning-based methods\n\n10. Learning controllers and value functions\n\nSupervised approximation of known solutions.\nClosed-loop evaluation.\nNeural value-function approximation.\nAdversarial training and its limitations."
+  },
+  {
+    "objectID": "course.html#prerequisites",
+    "href": "course.html#prerequisites",
+    "title": "Course outline",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThe course assumes familiarity with:\n\nLinear algebra.\nMultivariable calculus.\nOrdinary differential equations.\nBasic Python programming.\n\nAdditional mathematical tools will be introduced when needed."
+  },
+  {
+    "objectID": "course.html#reading",
+    "href": "course.html#reading",
+    "title": "Course outline",
+    "section": "Reading",
+    "text": "Reading\nThe initial reading follows Blagodatskikh and selected material from Evans. Later topics use specialized differential-games references.\nSee the sources page for the developing bibliography."
   }
 ]

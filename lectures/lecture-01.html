@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 1. Formulation of an Optimal Control Problem – Optimal Control and Differential Games</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6a2b564723c042b0e428f357d9a015bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Optimal Control and Differential Games</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../course.html"> 
+<span class="menu-text">Course outline</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks.html"> 
+<span class="menu-text">Notebooks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../sources.html"> 
+<span class="menu-text">Sources</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ignatenko/Differential-games-lectures"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning objectives</a></li>
+  <li><a href="#state-and-control" id="toc-state-and-control" class="nav-link" data-scroll-target="#state-and-control"><span class="header-section-number">2</span> 1. State and control</a></li>
+  <li><a href="#admissible-controls" id="toc-admissible-controls" class="nav-link" data-scroll-target="#admissible-controls"><span class="header-section-number">3</span> 2. Admissible controls</a>
+  <ul class="collapse">
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question"><span class="header-section-number">3.1</span> Question</a></li>
+  </ul></li>
+  <li><a href="#initial-and-terminal-conditions" id="toc-initial-and-terminal-conditions" class="nav-link" data-scroll-target="#initial-and-terminal-conditions"><span class="header-section-number">4</span> 3. Initial and terminal conditions</a></li>
+  <li><a href="#the-objective-functional" id="toc-the-objective-functional" class="nav-link" data-scroll-target="#the-objective-functional"><span class="header-section-number">5</span> 4. The objective functional</a>
+  <ul class="collapse">
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">5.1</span> Questions</a></li>
+  </ul></li>
+  <li><a href="#example-a-controlled-harmonic-oscillator" id="toc-example-a-controlled-harmonic-oscillator" class="nav-link" data-scroll-target="#example-a-controlled-harmonic-oscillator"><span class="header-section-number">6</span> 5. Example: a controlled harmonic oscillator</a></li>
+  <li><a href="#computational-experiment" id="toc-computational-experiment" class="nav-link" data-scroll-target="#computational-experiment"><span class="header-section-number">7</span> 6. Computational experiment</a></li>
+  <li><a href="#the-linear-minimum-time-problem" id="toc-the-linear-minimum-time-problem" class="nav-link" data-scroll-target="#the-linear-minimum-time-problem"><span class="header-section-number">8</span> 7. The linear minimum-time problem</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9</span> Exercises</a></li>
+  <li><a href="#laboratory" id="toc-laboratory" class="nav-link" data-scroll-target="#laboratory"><span class="header-section-number">10</span> Laboratory</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 1. Formulation of an Optimal Control Problem</h1>
+<p class="subtitle lead">States, controls, constraints, and objectives</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-objectives" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> Learning objectives</h2>
+<p>After this lecture, you should be able to:</p>
+<ol type="1">
+<li>Identify the state and control variables of a system.</li>
+<li>Formulate control constraints.</li>
+<li>Specify initial and terminal conditions.</li>
+<li>Distinguish a feasible control from an optimal control.</li>
+<li>Formulate a minimum-time problem.</li>
+<li>Rewrite a second-order controlled equation as a first-order system.</li>
+</ol>
+</section>
+<section id="state-and-control" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="state-and-control"><span class="header-section-number">2</span> 1. State and control</h2>
+<p>When we have optimal control problem usually we are working with some object depending on time. At each moment of time this object fully determined by parameters $ (x<sup>{1}(t),,x</sup>{n}(t))$, which can be coordinates of position, components of velocity etc.<br>
+Vector <span class="math inline">\(\mathbf{x}(t)\)</span> is called the <em>phase state</em> of object: <span class="math display">\[
+\mathbf{x}(t)=\bigl(x^{1}(t),\ldots,x^{n}(t)\bigr)
+\]</span></p>
+<p>We also imply that we can influence the process with some function, usually called <em>control</em>. The control represents quantities that we may choose:</p>
+<p><span class="math display">\[
+\mathbf{u}(t)=\bigl(u^{1}(t),\ldots,u^{m}(t)\bigr)
+\]</span></p>
+<p>It is natural to think that current state of the system depends on previous values of <span class="math inline">\(\mathbf{u}(t)\)</span> and does not depend on future control.</p>
+<p>In this course we will assume a dynamic controlled system has the form:</p>
+<p><span id="eq-controlled-system"><span class="math display">\[
+\dot{\mathbf{x}}=f(t,\mathbf{x},\mathbf{u}).
+\tag{1}\]</span></span></p>
+<p>Once a control and an initial condition are specified, we obtain an initial-value problem, whre trajectory is a solution of differential equation</p>
+<p><span class="math display">\[
+\dot{\mathbf{x}(t)}=f(t,\mathbf{x}(t),\mathbf{u}(t)).
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Standing assumption
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the examples considered here, we assume that the chosen control produces a well-defined, unique trajectory on the interval under consideration.</p>
+</div>
+</div>
+</section>
+<section id="admissible-controls" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="admissible-controls"><span class="header-section-number">3</span> 2. Admissible controls</h2>
+<p>Controls cannot usually be chosen arbitrarily.</p>
+<p>We impose</p>
+<p><span id="eq-control-constraint"><span class="math display">\[
+u(t)\in U.
+\tag{2}\]</span></span></p>
+<p>For a scalar bounded input, an example is</p>
+<p><span class="math display">\[
+U=[-1,1].
+\]</span></p>
+<p>In this lecture’s computational experiments, we use piecewise-constant controls. More general admissible control classes will be discussed later.</p>
+<section id="question" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="question"><span class="header-section-number">3.1</span> Question</h3>
+<p>Why should the admissible class of controls be specified before solving an optimization problem?</p>
+</section>
+</section>
+<section id="initial-and-terminal-conditions" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="initial-and-terminal-conditions"><span class="header-section-number">4</span> 3. Initial and terminal conditions</h2>
+<p>Let <span class="math inline">\(M_0\)</span> be the initial set and <span class="math inline">\(M_1\)</span> the terminal set.</p>
+<p>A transfer must satisfy</p>
+<p><span id="eq-boundary-conditions"><span class="math display">\[
+x(t_0)\in M_0,
+\qquad
+x(t_1)\in M_1.
+\tag{3}\]</span></span></p>
+<p>An important special case is</p>
+<p><span class="math display">\[
+M_0=\{x_0\},
+\qquad
+M_1=\{x_{\mathrm{target}}\}.
+\]</span></p>
+<p>A feasible control satisfies the control constraints and produces a trajectory meeting the boundary conditions.</p>
+<p>Finding a feasible control is not the same as finding an optimal control.</p>
+</section>
+<section id="the-objective-functional" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-objective-functional"><span class="header-section-number">5</span> 4. The objective functional</h2>
+<p>Among feasible controls, we may seek one minimizing</p>
+<p><span id="eq-objective"><span class="math display">\[
+J(u)=
+\int_{t_0}^{t_1}
+f^0(s,x(s),u(s))\,ds.
+\tag{4}\]</span></span></p>
+<p>For example, choosing <span class="math inline">\(f^0=1\)</span> gives</p>
+<p><span class="math display">\[
+J(u)=t_1-t_0.
+\]</span></p>
+<p>When the terminal time is free, this leads to a minimum-time problem.</p>
+<section id="questions" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="questions"><span class="header-section-number">5.1</span> Questions</h3>
+<ol type="1">
+<li>Is the terminal time fixed or free?</li>
+<li>Is the terminal condition an equality or a set constraint?</li>
+<li>Does an admissible control necessarily reach the target?</li>
+<li>Is an optimal control guaranteed to exist?</li>
+</ol>
+</section>
+</section>
+<section id="example-a-controlled-harmonic-oscillator" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="example-a-controlled-harmonic-oscillator"><span class="header-section-number">6</span> 5. Example: a controlled harmonic oscillator</h2>
+<p>Consider the normalized mechanical system</p>
+<p><span id="eq-oscillator"><span class="math display">\[
+\ddot y+y=u,
+\qquad |u|\le1.
+\tag{5}\]</span></span></p>
+<p>Introduce</p>
+<p><span class="math display">\[
+x_1=y,
+\qquad
+x_2=\dot y.
+\]</span></p>
+<p>Then</p>
+<p><span id="eq-oscillator-state"><span class="math display">\[
+\begin{aligned}
+\dot x_1 &amp;= x_2,\\
+\dot x_2 &amp;= -x_1+u.
+\end{aligned}
+\tag{6}\]</span></span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\dot x=Ax+Bu,
+\qquad
+A=
+\begin{pmatrix}
+0&amp;1\\
+-1&amp;0
+\end{pmatrix},
+\qquad
+B=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+\]</span></p>
+<p>A control problem is to transfer a prescribed initial state <span class="math inline">\(x_0\)</span> to the origin in minimum time.</p>
+</section>
+<section id="computational-experiment" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="computational-experiment"><span class="header-section-number">7</span> 6. Computational experiment</h2>
+<p>Before solving the optimal-control problem, compare several admissible controls:</p>
+<ul>
+<li><span class="math inline">\(u(t)=0\)</span>;</li>
+<li><span class="math inline">\(u(t)=1\)</span>;</li>
+<li><span class="math inline">\(u(t)=-1\)</span>;</li>
+<li>a control that switches once between its extreme values.</li>
+</ul>
+<p>Plot:</p>
+<ol type="1">
+<li>The control history.</li>
+<li>Position and velocity versus time.</li>
+<li>The trajectory in the state plane.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These experiments compare candidate controls. They do not establish that any candidate is optimal.</p>
+</div>
+</div>
+</section>
+<section id="the-linear-minimum-time-problem" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="the-linear-minimum-time-problem"><span class="header-section-number">8</span> 7. The linear minimum-time problem</h2>
+<p>The course will study linear controlled systems of the form</p>
+<p><span class="math display">\[
+\dot x=Ax+u,
+\qquad u(t)\in U,
+\]</span></p>
+<p>and transfers from an initial set to a terminal set in minimum time.</p>
+<p>In applications it is also convenient to write</p>
+<p><span class="math display">\[
+\dot x=Ax+Bv,
+\qquad v(t)\in V.
+\]</span></p>
+<p>Here the admissible forcing set in the first notation can be taken as <span class="math inline">\(U=BV\)</span>.</p>
+<p>The next lectures develop the mathematical tools needed to analyze such problems.</p>
+</section>
+<section id="exercises" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9</span> Exercises</h2>
+<ol type="1">
+<li><p>Rewrite <span class="math inline">\(\ddot y+y=u\)</span> as a first-order system.</p></li>
+<li><p>Identify the state, control set, initial set, terminal set, and objective for the oscillator problem.</p></li>
+<li><p>Explain why <span class="math inline">\(u(t)=0\)</span> cannot transfer a nonzero oscillator state to the origin.</p></li>
+<li><p>For a constant control <span class="math inline">\(u=a\)</span>, determine the equilibrium.</p></li>
+<li><p>Show that trajectories under constant <span class="math inline">\(a\)</span> satisfy</p>
+<p><span class="math display">\[
+(x_1-a)^2+x_2^2=\text{constant}.
+\]</span></p></li>
+<li><p>Compare a minimum-time objective with a fixed-time minimum-energy objective.</p></li>
+</ol>
+</section>
+<section id="laboratory" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="laboratory"><span class="header-section-number">10</span> Laboratory</h2>
+<p>The accompanying notebook investigates candidate controls and illustrates the difference between feasibility and optimality.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ignatenko\.github\.io\/Differential-games-lectures\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oleksii Ignatenko · Course under development</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/ignatenko/Differential-games-lectures">
+<p>Source code</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
