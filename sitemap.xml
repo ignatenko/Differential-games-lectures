@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ignatenko.github.io/Differential-games-lectures/about.html</loc>
-    <lastmod>2026-10-30T11:04:05.728Z</lastmod>
+    <loc>https://ignatenko.github.io/Differential-games-lectures/course.html</loc>
+    <lastmod>2026-10-30T11:15:15.012Z</lastmod>
   </url>
   <url>
-    <loc>https://ignatenko.github.io/Differential-games-lectures/posts/welcome/index.html</loc>
-    <lastmod>2026-10-30T11:04:05.731Z</lastmod>
+    <loc>https://ignatenko.github.io/Differential-games-lectures/sources.html</loc>
+    <lastmod>2026-10-30T11:21:26.663Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ignatenko.github.io/Differential-games-lectures/notebooks.html</loc>
+    <lastmod>2026-10-30T11:22:09.595Z</lastmod>
   </url>
   <url>
     <loc>https://ignatenko.github.io/Differential-games-lectures/posts/post-with-code/index.html</loc>
     <lastmod>2026-10-30T11:04:05.731Z</lastmod>
   </url>
   <url>
+    <loc>https://ignatenko.github.io/Differential-games-lectures/posts/welcome/index.html</loc>
+    <lastmod>2026-10-30T11:04:05.731Z</lastmod>
+  </url>
+  <url>
     <loc>https://ignatenko.github.io/Differential-games-lectures/index.html</loc>
-    <lastmod>2026-10-30T11:04:05.729Z</lastmod>
+    <lastmod>2026-10-30T12:13:25.619Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ignatenko.github.io/Differential-games-lectures/about.html</loc>
+    <lastmod>2026-10-30T12:28:45.567Z</lastmod>
   </url>
 </urlset>

@@ -1,1 +1,21 @@
-/* css styles */
+/* Comfortable reading width */
+main.content {
+  max-width: 960px;
+}
+
+/* Give major sections some breathing room */
+h2 {
+  margin-top: 2rem;
+}
+
+/* Portrait appearance */
+img[alt="Portrait of Oleksii Ignatenko"] {
+  border-radius: 12px;
+}
+
+/* Slightly larger spacing in tables */
+table td,
+table th {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
