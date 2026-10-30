@@ -2,23 +2,38 @@ project:
   type: website
 
 website:
-  description: "Lecture notes on optimal control and differential games"
+  title: "Optimal Control and Differential Games"
+  description: "Lecture notes, computational experiments, and learning resources."
   site-url: "https://ignatenko.github.io/Differential-games-lectures/"
-  title: "QuartoMy"
 
   navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: course.qmd
+        text: Course outline
+      - href: notebooks.qmd
+        text: Notebooks
+      - href: sources.qmd
+        text: Sources
+
     right:
-      - about.qmd
-
+      - href: about.qmd
+        text: About
       - icon: github
-        href: "https://ignatenko.github.io/Differential-games-lectures/"
+        href: "https://github.com/ignatenko/Differential-games-lectures"
+        aria-label: GitHub repository
 
-      - icon: bluesky
-        href: "https://bsky.app/"
+  page-footer:
+    left: "Oleksii Ignatenko · Course under development"
+    right:
+      - text: "Source code"
+        href: "https://github.com/ignatenko/Differential-games-lectures"
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
+    toc: true
+    code-copy: true
+    code-fold: true

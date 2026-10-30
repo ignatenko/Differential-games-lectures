@@ -1,0 +1,65 @@
+---
+title: "Sources and reading"
+---
+
+## Foundational reading
+
+### V. I. Blagodatskikh — Introduction to Optimal Control
+
+Primary reference for the opening part of the course:
+linear controlled systems, reachable sets, and minimum-time
+control.
+
+The exact edition and lecture/page references will be specified
+as individual lectures are prepared.
+
+### Lawrence C. Evans — An Introduction to Mathematical Optimal Control Theory
+
+Complementary reading on optimal control, the maximum principle,
+dynamic programming, and differential games.
+
+[Author-hosted lecture notes](https://math.berkeley.edu/~evans/control.course.pdf)
+
+## Differential games
+
+### Tamer Başar and Geert Jan Olsder — Dynamic Noncooperative Game Theory
+
+Reference for dynamic games, information patterns,
+equilibrium concepts, and pursuit–evasion.
+
+### Rufus Isaacs — Differential Games
+
+Classical geometric perspective on differential games
+and pursuit–evasion.
+
+### N. N. Krasovskii and A. I. Subbotin — Game-Theoretical Control Problems
+
+Reference for positional strategies and guaranteed outcomes.
+
+### A. A. Chikrii — Conflict-Controlled Processes
+
+Reference for resolving functions, constructive pursuit,
+and multiplayer problems.
+
+### B. N. Pshenichnyi and V. V. Ostapenko — Differential Games
+
+Companion reference for the constructive pursuit tradition.
+
+## Pursuit–evasion survey
+
+Isaac E. Weintraub, Meir Pachter, and Eloy Garcia,
+*An Introduction to Pursuit-evasion Differential Games*.
+
+Used as a map of pursuit–evasion problems and a source
+of detailed cooperative-pursuit examples.
+
+[arXiv record](https://arxiv.org/abs/2003.05013)
+
+## Attribution
+
+Individual lectures will identify their principal sources,
+including specific sections or pages where possible.
+
+Adapted arguments, examples, and exercises will be marked.
+Numerical experiments and independently developed figures
+will be distinguished from results established in the literature.

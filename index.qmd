@@ -1,15 +1,59 @@
 ---
-title: "QuartoMy"
-listing:
-  contents: posts
-  feed: true
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+title: "Optimal Control and Differential Games"
+subtitle: "From mathematical foundations to computational experiments"
+toc: false
 ---
 
+## About the course
 
+This course explores how to control dynamical systems and make
+decisions in the presence of conflict.
+
+We begin with linear optimal control, reachable sets, and
+minimum-time problems. We then move to pursuit–evasion games with two and more players, constructive pursuit methods, positional strategies, and Hamilton–Jacobi equations.
+
+Mathematical lectures are paired with Python notebooks designed
+for Google Colab. The notebooks support visualization, numerical
+experiments, strategy comparisons, and student assignments.
+
+We will also aim for lean formalization. 
+
+## Learning approach
+
+Each topic follows a common sequence:
+
+1. Formulate a mathematical problem.
+2. Develop geometric intuition.
+3. Derive a result and examine its assumptions.
+4. Implement a numerical experiment.
+5. Compare methods and identify limitations.
+
+A central theme is the distinction between a successful simulation,
+an approximate numerical solution, and a mathematically established
+guarantee.
+
+## Main topics
+
+- Linear controlled systems and reachable sets.
+- Minimum-time and minimum-energy control.
+- Pontryagin's maximum principle and dynamic programming.
+- Constructive pursuit methods.
+- Krasovskii–Subbotin positional strategies.
+- Hamilton–Jacobi–Isaacs equations and verification.
+- Numerical comparison of control and pursuit strategies.
+- Neural approximations of controllers and value functions.
+
+## Start here
+
+- [Explore the preliminary course outline](course.qmd).
+- [Find computational notebooks](notebooks.qmd).
+- [Browse the reading list](sources.qmd).
+- [About the lecturer](about.qmd).
+
+::: {.callout-note}
+## Work in progress
+
+These materials are being developed incrementally. The course
+outline is preliminary, and notebooks will be published as they
+are prepared and checked.
+:::

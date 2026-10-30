@@ -1,0 +1,149 @@
+[
+  {
+    "objectID": "sources.html",
+    "href": "sources.html",
+    "title": "Sources and reading",
+    "section": "",
+    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+  },
+  {
+    "objectID": "sources.html#foundational-reading",
+    "href": "sources.html#foundational-reading",
+    "title": "Sources and reading",
+    "section": "",
+    "text": "Primary reference for the opening part of the course: linear controlled systems, reachable sets, and minimum-time control.\nThe exact edition and lecture/page references will be specified as individual lectures are prepared.\n\n\n\nComplementary reading on optimal control, the maximum principle, dynamic programming, and differential games.\nAuthor-hosted lecture notes"
+  },
+  {
+    "objectID": "sources.html#differential-games",
+    "href": "sources.html#differential-games",
+    "title": "Sources and reading",
+    "section": "Differential games",
+    "text": "Differential games\n\nTamer Başar and Geert Jan Olsder — Dynamic Noncooperative Game Theory\nReference for dynamic games, information patterns, equilibrium concepts, and pursuit–evasion.\n\n\nRufus Isaacs — Differential Games\nClassical geometric perspective on differential games and pursuit–evasion.\n\n\nN. N. Krasovskii and A. I. Subbotin — Game-Theoretical Control Problems\nReference for positional strategies and guaranteed outcomes.\n\n\nA. A. Chikrii — Conflict-Controlled Processes\nReference for resolving functions, constructive pursuit, and multiplayer problems.\n\n\nB. N. Pshenichnyi and V. V. Ostapenko — Differential Games\nCompanion reference for the constructive pursuit tradition."
+  },
+  {
+    "objectID": "sources.html#pursuitevasion-survey",
+    "href": "sources.html#pursuitevasion-survey",
+    "title": "Sources and reading",
+    "section": "Pursuit–evasion survey",
+    "text": "Pursuit–evasion survey\nIsaac E. Weintraub, Meir Pachter, and Eloy Garcia, An Introduction to Pursuit-evasion Differential Games.\nUsed as a map of pursuit–evasion problems and a source of detailed cooperative-pursuit examples.\narXiv record"
+  },
+  {
+    "objectID": "sources.html#attribution",
+    "href": "sources.html#attribution",
+    "title": "Sources and reading",
+    "section": "Attribution",
+    "text": "Attribution\nIndividual lectures will identify their principal sources, including specific sections or pages where possible.\nAdapted arguments, examples, and exercises will be marked. Numerical experiments and independently developed figures will be distinguished from results established in the literature."
+  },
+  {
+    "objectID": "notebooks.html",
+    "href": "notebooks.html",
+    "title": "Computational notebooks",
+    "section": "",
+    "text": "The laboratories are being developed for Google Colab. Published notebooks will include mathematical background, code, visualizations, validation checks, and student tasks."
+  },
+  {
+    "objectID": "notebooks.html#initial-laboratories",
+    "href": "notebooks.html#initial-laboratories",
+    "title": "Computational notebooks",
+    "section": "Initial laboratories",
+    "text": "Initial laboratories\n\n\n\n\n\n\n\n\nLaboratory\nMain topic\nStatus\n\n\n\n\n1. Linear dynamics\nExact simulation and control trajectories\nPlanned\n\n\n2. Reachable sets\nGeometry, supporting directions, target feasibility\nPlanned\n\n\n3. Minimum-time control\nSwitching curves and analytical benchmarks\nPlanned\n\n\n4. Comparing objectives\nTime, energy, and terminal error\nPlanned"
+  },
+  {
+    "objectID": "notebooks.html#how-to-use-a-notebook",
+    "href": "notebooks.html#how-to-use-a-notebook",
+    "title": "Computational notebooks",
+    "section": "How to use a notebook",
+    "text": "How to use a notebook\n\nRead the mathematical formulation.\nPredict the expected result before running the code.\nRun the reference experiment.\nComplete the numerical checks.\nModify one assumption or parameter.\nExplain what the experiment does and does not establish."
+  },
+  {
+    "objectID": "notebooks.html#reproducibility",
+    "href": "notebooks.html#reproducibility",
+    "title": "Computational notebooks",
+    "section": "Reproducibility",
+    "text": "Reproducibility\nEach published notebook should state:\n\nModel and control constraints.\nInitial conditions and parameters.\nNumerical method and discretization.\nRandom seed, when applicable.\nValidation checks.\nKnown limitations."
+  },
+  {
+    "objectID": "notebooks.html#repository",
+    "href": "notebooks.html#repository",
+    "title": "Computational notebooks",
+    "section": "Repository",
+    "text": "Repository\nNotebook source files will be stored in the course repository."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Optimal Control and Differential Games",
+    "section": "",
+    "text": "This course explores how to control dynamical systems and make decisions in the presence of conflict.\nWe begin with linear optimal control, reachable sets, and minimum-time problems. We then move to pursuit–evasion games with two and more players, constructive pursuit methods, positional strategies, and Hamilton–Jacobi equations.\nMathematical lectures are paired with Python notebooks designed for Google Colab. The notebooks support visualization, numerical experiments, strategy comparisons, and student assignments.\nWe will also aim for lean formalization."
+  },
+  {
+    "objectID": "index.html#about-the-course",
+    "href": "index.html#about-the-course",
+    "title": "Optimal Control and Differential Games",
+    "section": "",
+    "text": "This course explores how to control dynamical systems and make decisions in the presence of conflict.\nWe begin with linear optimal control, reachable sets, and minimum-time problems. We then move to pursuit–evasion games with two and more players, constructive pursuit methods, positional strategies, and Hamilton–Jacobi equations.\nMathematical lectures are paired with Python notebooks designed for Google Colab. The notebooks support visualization, numerical experiments, strategy comparisons, and student assignments.\nWe will also aim for lean formalization."
+  },
+  {
+    "objectID": "index.html#learning-approach",
+    "href": "index.html#learning-approach",
+    "title": "Optimal Control and Differential Games",
+    "section": "Learning approach",
+    "text": "Learning approach\nEach topic follows a common sequence:\n\nFormulate a mathematical problem.\nDevelop geometric intuition.\nDerive a result and examine its assumptions.\nImplement a numerical experiment.\nCompare methods and identify limitations.\n\nA central theme is the distinction between a successful simulation, an approximate numerical solution, and a mathematically established guarantee."
+  },
+  {
+    "objectID": "index.html#main-topics",
+    "href": "index.html#main-topics",
+    "title": "Optimal Control and Differential Games",
+    "section": "Main topics",
+    "text": "Main topics\n\nLinear controlled systems and reachable sets.\nMinimum-time and minimum-energy control.\nPontryagin’s maximum principle and dynamic programming.\nConstructive pursuit methods.\nKrasovskii–Subbotin positional strategies.\nHamilton–Jacobi–Isaacs equations and verification.\nNumerical comparison of control and pursuit strategies.\nNeural approximations of controllers and value functions."
+  },
+  {
+    "objectID": "index.html#start-here",
+    "href": "index.html#start-here",
+    "title": "Optimal Control and Differential Games",
+    "section": "Start here",
+    "text": "Start here\n\nExplore the preliminary course outline.\nFind computational notebooks.\nBrowse the reading list.\nAbout the lecturer.\n\n\n\n\n\n\n\nNoteWork in progress\n\n\n\nThese materials are being developed incrementally. The course outline is preliminary, and notebooks will be published as they are prepared and checked."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
+  },
+  {
+    "objectID": "about.html#oleksii-ignatenko",
+    "href": "about.html#oleksii-ignatenko",
+    "title": "About",
+    "section": "",
+    "text": "My research and teaching interests include game theory, formal verification, artificial intelligence, and mathematical modeling.\nThis website documents my study and teaching of optimal control and differential games. It combines mathematical exposition with computational experiments and materials for students.\nI am particularly interested in connecting rigorous strategy guarantees with numerical evaluation and learning-based methods."
+  },
+  {
+    "objectID": "about.html#about-these-notes",
+    "href": "about.html#about-these-notes",
+    "title": "About",
+    "section": "About these notes",
+    "text": "About these notes\nThese are independently written lecture materials informed by the books and papers listed on the sources page.\nThe aim is not to replace those references, but to provide a coherent learning path supported by examples, visualizations, and reproducible notebooks."
+  },
+  {
+    "objectID": "about.html#links",
+    "href": "about.html#links",
+    "title": "About",
+    "section": "Links",
+    "text": "Links\n\nCourse repository\nCourse outline\nComputational notebooks"
+  }
+]

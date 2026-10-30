@@ -1,0 +1,41 @@
+---
+title: "Computational notebooks"
+---
+
+The laboratories are being developed for Google Colab.
+Published notebooks will include mathematical background,
+code, visualizations, validation checks, and student tasks.
+
+## Initial laboratories
+
+| Laboratory | Main topic | Status |
+|---|---|---|
+| 1. Linear dynamics | Exact simulation and control trajectories | Planned |
+| 2. Reachable sets | Geometry, supporting directions, target feasibility | Planned |
+| 3. Minimum-time control | Switching curves and analytical benchmarks | Planned |
+| 4. Comparing objectives | Time, energy, and terminal error | Planned |
+
+## How to use a notebook
+
+1. Read the mathematical formulation.
+2. Predict the expected result before running the code.
+3. Run the reference experiment.
+4. Complete the numerical checks.
+5. Modify one assumption or parameter.
+6. Explain what the experiment does and does not establish.
+
+## Reproducibility
+
+Each published notebook should state:
+
+- Model and control constraints.
+- Initial conditions and parameters.
+- Numerical method and discretization.
+- Random seed, when applicable.
+- Validation checks.
+- Known limitations.
+
+## Repository
+
+Notebook source files will be stored in the
+[course repository](https://github.com/ignatenko/Differential-games-lectures).
