@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>course – Optimal Control and Differential Games</title>
+<title>Course outline – Optimal Control and Differential Games</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -133,17 +133,178 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-i.-foundations-of-optimal-control" id="toc-part-i.-foundations-of-optimal-control" class="nav-link active" data-scroll-target="#part-i.-foundations-of-optimal-control">Part I. Foundations of optimal control</a>
+  <ul class="collapse">
+  <li><a href="#controlled-dynamical-systems" id="toc-controlled-dynamical-systems" class="nav-link" data-scroll-target="#controlled-dynamical-systems">1. Controlled dynamical systems</a></li>
+  <li><a href="#reachable-sets-and-controllability" id="toc-reachable-sets-and-controllability" class="nav-link" data-scroll-target="#reachable-sets-and-controllability">2. Reachable sets and controllability</a></li>
+  <li><a href="#minimum-time-control" id="toc-minimum-time-control" class="nav-link" data-scroll-target="#minimum-time-control">3. Minimum-time control</a></li>
+  <li><a href="#objectives-and-numerical-optimization" id="toc-objectives-and-numerical-optimization" class="nav-link" data-scroll-target="#objectives-and-numerical-optimization">4. Objectives and numerical optimization</a></li>
+  </ul></li>
+  <li><a href="#part-ii.-from-optimal-control-to-differential-games" id="toc-part-ii.-from-optimal-control-to-differential-games" class="nav-link" data-scroll-target="#part-ii.-from-optimal-control-to-differential-games">Part II. From optimal control to differential games</a>
+  <ul class="collapse">
+  <li><a href="#adversarial-control" id="toc-adversarial-control" class="nav-link" data-scroll-target="#adversarial-control">5. Adversarial control</a></li>
+  <li><a href="#constructive-pursuit-methods" id="toc-constructive-pursuit-methods" class="nav-link" data-scroll-target="#constructive-pursuit-methods">6. Constructive pursuit methods</a></li>
+  <li><a href="#positional-strategies" id="toc-positional-strategies" class="nav-link" data-scroll-target="#positional-strategies">7. Positional strategies</a></li>
+  </ul></li>
+  <li><a href="#part-iii.-value-functions-and-computation" id="toc-part-iii.-value-functions-and-computation" class="nav-link" data-scroll-target="#part-iii.-value-functions-and-computation">Part III. Value functions and computation</a>
+  <ul class="collapse">
+  <li><a href="#dynamic-programming-and-hamiltonjacobi-equations" id="toc-dynamic-programming-and-hamiltonjacobi-equations" class="nav-link" data-scroll-target="#dynamic-programming-and-hamiltonjacobi-equations">8. Dynamic programming and Hamilton–Jacobi equations</a></li>
+  <li><a href="#strategy-evaluation" id="toc-strategy-evaluation" class="nav-link" data-scroll-target="#strategy-evaluation">9. Strategy evaluation</a></li>
+  </ul></li>
+  <li><a href="#part-iv.-learning-based-methods" id="toc-part-iv.-learning-based-methods" class="nav-link" data-scroll-target="#part-iv.-learning-based-methods">Part IV. Learning-based methods</a>
+  <ul class="collapse">
+  <li><a href="#learning-controllers-and-value-functions" id="toc-learning-controllers-and-value-functions" class="nav-link" data-scroll-target="#learning-controllers-and-value-functions">10. Learning controllers and value functions</a></li>
+  </ul></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Course outline</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<p>This preliminary outline combines mathematical reading, lectures, and computational laboratories. The pace and selection of advanced topics may change as the materials develop.</p>
+<section id="part-i.-foundations-of-optimal-control" class="level2">
+<h2 class="anchored" data-anchor-id="part-i.-foundations-of-optimal-control">Part I. Foundations of optimal control</h2>
+<section id="controlled-dynamical-systems" class="level3">
+<h3 class="anchored" data-anchor-id="controlled-dynamical-systems">1. Controlled dynamical systems</h3>
+<ul>
+<li>States, controls, and admissible trajectories.</li>
+<li>Linear systems and the solution formula.</li>
+<li>Exact propagation under piecewise-constant controls.</li>
+</ul>
+<p>Laboratory: simulate the integrator and double integrator; compare analytical and numerical trajectories.</p>
+<p><a href="./lectures/lecture-01.html">Lecture 1. Formulation of an Optimal Control Problem</a></p>
+</section>
+<section id="reachable-sets-and-controllability" class="level3">
+<h3 class="anchored" data-anchor-id="reachable-sets-and-controllability">2. Reachable sets and controllability</h3>
+<ul>
+<li>Fixed-time reachable sets.</li>
+<li>Convex geometry and supporting directions.</li>
+<li>Controllability versus bounded-control reachability.</li>
+</ul>
+<p>Laboratory: construct reachable sets, explore their boundaries, and test target feasibility.</p>
+</section>
+<section id="minimum-time-control" class="level3">
+<h3 class="anchored" data-anchor-id="minimum-time-control">3. Minimum-time control</h3>
+<ul>
+<li>Earliest arrival at a target.</li>
+<li>Bang-bang controls and switching geometry.</li>
+<li>Analytical reference solutions.</li>
+</ul>
+<p>Laboratory: solve the double-integrator minimum-time problem and compare analytical and numerical results.</p>
+</section>
+<section id="objectives-and-numerical-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="objectives-and-numerical-optimization">4. Objectives and numerical optimization</h3>
+<ul>
+<li>Minimum time, minimum energy, and tracking.</li>
+<li>Terminal constraints and penalty formulations.</li>
+<li>Discretized controls and numerical optimization.</li>
+</ul>
+<p>Laboratory: compare objectives under the same dynamics and control constraints.</p>
+</section>
+</section>
+<section id="part-ii.-from-optimal-control-to-differential-games" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii.-from-optimal-control-to-differential-games">Part II. From optimal control to differential games</h2>
+<section id="adversarial-control" class="level3">
+<h3 class="anchored" data-anchor-id="adversarial-control">5. Adversarial control</h3>
+<ul>
+<li>Pursuer and evader objectives.</li>
+<li>Controls, feedback policies, and information patterns.</li>
+<li>Guaranteed outcomes versus optimal outcomes.</li>
+</ul>
+</section>
+<section id="constructive-pursuit-methods" class="level3">
+<h3 class="anchored" data-anchor-id="constructive-pursuit-methods">6. Constructive pursuit methods</h3>
+<ul>
+<li>Pontryagin’s direct pursuit methods.</li>
+<li>Pshenychnyi and group pursuit.</li>
+<li>Chikrii’s resolving-functions approach.</li>
+<li>Sufficient capture conditions and guaranteed-time bounds.</li>
+</ul>
+</section>
+<section id="positional-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="positional-strategies">7. Positional strategies</h3>
+<ul>
+<li>Krasovskii–Subbotin framework.</li>
+<li>Stable bridges and extremal aiming.</li>
+<li>Numerical approximation and strategy realization.</li>
+</ul>
+</section>
+</section>
+<section id="part-iii.-value-functions-and-computation" class="level2">
+<h2 class="anchored" data-anchor-id="part-iii.-value-functions-and-computation">Part III. Value functions and computation</h2>
+<section id="dynamic-programming-and-hamiltonjacobi-equations" class="level3">
+<h3 class="anchored" data-anchor-id="dynamic-programming-and-hamiltonjacobi-equations">8. Dynamic programming and Hamilton–Jacobi equations</h3>
+<ul>
+<li>HJB and HJI formulations.</li>
+<li>Boundary and terminal conditions.</li>
+<li>Verification and nonsmooth value functions.</li>
+</ul>
+</section>
+<section id="strategy-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-evaluation">9. Strategy evaluation</h3>
+<ul>
+<li>Common benchmark problems.</li>
+<li>Opponent collections and approximate best responses.</li>
+<li>Sensitivity, discretization, and reproducibility.</li>
+</ul>
+</section>
+</section>
+<section id="part-iv.-learning-based-methods" class="level2">
+<h2 class="anchored" data-anchor-id="part-iv.-learning-based-methods">Part IV. Learning-based methods</h2>
+<section id="learning-controllers-and-value-functions" class="level3">
+<h3 class="anchored" data-anchor-id="learning-controllers-and-value-functions">10. Learning controllers and value functions</h3>
+<ul>
+<li>Supervised approximation of known solutions.</li>
+<li>Closed-loop evaluation.</li>
+<li>Neural value-function approximation.</li>
+<li>Adversarial training and its limitations.</li>
+</ul>
+</section>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>The course assumes familiarity with:</p>
+<ul>
+<li>Linear algebra.</li>
+<li>Multivariable calculus.</li>
+<li>Ordinary differential equations.</li>
+<li>Basic Python programming.</li>
+</ul>
+<p>Additional mathematical tools will be introduced when needed.</p>
+</section>
+<section id="reading" class="level2">
+<h2 class="anchored" data-anchor-id="reading">Reading</h2>
+<p>The initial reading follows Blagodatskikh and selected material from Evans. Later topics use specialized differential-games references.</p>
+<p>See the <a href="./sources.html">sources page</a> for the developing bibliography.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

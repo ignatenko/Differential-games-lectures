@@ -1,0 +1,255 @@
+---
+title: "Lecture 1. Formulation of an Optimal Control Problem"
+subtitle: "States, controls, constraints, and objectives"
+toc: true
+number-sections: true
+---
+
+
+## Learning objectives
+
+After this lecture, you should be able to:
+
+1. Identify the state and control variables of a system.
+2. Formulate control constraints.
+3. Specify initial and terminal conditions.
+4. Distinguish a feasible control from an optimal control.
+5. Formulate a minimum-time problem.
+6. Rewrite a second-order controlled equation as a
+   first-order system.
+
+## 1. State and control
+
+When we have optimal control problem usually we are working with some object depending on 
+time. At each moment of time this object fully determined by parameters $ (x^{1}(t),\ldots,x^{n}(t))$, which can be coordinates of position, components of velocity etc.      
+Vector $\mathbf{x}(t)$ is called the *phase state* of object:
+$$ 
+\mathbf{x}(t)=\bigl(x^{1}(t),\ldots,x^{n}(t)\bigr) 
+$$
+
+We also imply that we can influence the process with some function, usually called *control*. 
+The control represents quantities that we may choose:
+
+$$ 
+\mathbf{u}(t)=\bigl(u^{1}(t),\ldots,u^{m}(t)\bigr) 
+$$
+
+It is natural to think that current state of the system depends on previous values of $\mathbf{u}(t)$ and does not depend on future control.  
+
+In this course we will assume a dynamic controlled system has the form:
+
+$$
+\dot{\mathbf{x}}=f(t,\mathbf{x},\mathbf{u}).
+$$ {#eq-controlled-system}
+
+Once a control and an initial condition are specified,
+we obtain an initial-value problem, whre trajectory is a solution of differential equation
+
+$$
+\dot{\mathbf{x}(t)}=f(t,\mathbf{x}(t),\mathbf{u}(t)).
+$$
+
+
+
+::: {.callout-note}
+## Standing assumption
+
+In the examples considered here, we assume that the
+chosen control produces a well-defined, unique trajectory
+on the interval under consideration.
+:::
+
+## 2. Admissible controls
+
+Controls cannot usually be chosen arbitrarily.
+
+We impose
+
+$$
+u(t)\in U.
+$$ {#eq-control-constraint}
+
+For a scalar bounded input, an example is
+
+$$
+U=[-1,1].
+$$
+
+In this lecture's computational experiments, we use
+piecewise-constant controls. More general admissible
+control classes will be discussed later.
+
+### Question
+
+Why should the admissible class of controls be specified
+before solving an optimization problem?
+
+## 3. Initial and terminal conditions
+
+Let $M_0$ be the initial set and $M_1$ the terminal set.
+
+A transfer must satisfy
+
+$$
+x(t_0)\in M_0,
+\qquad
+x(t_1)\in M_1.
+$$ {#eq-boundary-conditions}
+
+An important special case is
+
+$$
+M_0=\{x_0\},
+\qquad
+M_1=\{x_{\mathrm{target}}\}.
+$$
+
+A feasible control satisfies the control constraints
+and produces a trajectory meeting the boundary conditions.
+
+Finding a feasible control is not the same as finding
+an optimal control.
+
+## 4. The objective functional
+
+Among feasible controls, we may seek one minimizing
+
+$$
+J(u)=
+\int_{t_0}^{t_1}
+f^0(s,x(s),u(s))\,ds.
+$$ {#eq-objective}
+
+For example, choosing $f^0=1$ gives
+
+$$
+J(u)=t_1-t_0.
+$$
+
+When the terminal time is free, this leads to a
+minimum-time problem.
+
+### Questions
+
+1. Is the terminal time fixed or free?
+2. Is the terminal condition an equality or a set constraint?
+3. Does an admissible control necessarily reach the target?
+4. Is an optimal control guaranteed to exist?
+
+## 5. Example: a controlled harmonic oscillator
+
+Consider the normalized mechanical system
+
+$$
+\ddot y+y=u,
+\qquad |u|\le1.
+$$ {#eq-oscillator}
+
+Introduce
+
+$$
+x_1=y,
+\qquad
+x_2=\dot y.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\dot x_1 &= x_2,\\
+\dot x_2 &= -x_1+u.
+\end{aligned}
+$$ {#eq-oscillator-state}
+
+Equivalently,
+
+$$
+\dot x=Ax+Bu,
+\qquad
+A=
+\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix},
+\qquad
+B=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}.
+$$
+
+A control problem is to transfer a prescribed initial
+state $x_0$ to the origin in minimum time.
+
+## 6. Computational experiment
+
+Before solving the optimal-control problem, compare
+several admissible controls:
+
+- $u(t)=0$;
+- $u(t)=1$;
+- $u(t)=-1$;
+- a control that switches once between its extreme values.
+
+Plot:
+
+1. The control history.
+2. Position and velocity versus time.
+3. The trajectory in the state plane.
+
+::: {.callout-warning}
+## Interpretation
+
+These experiments compare candidate controls.
+They do not establish that any candidate is optimal.
+:::
+
+## 7. The linear minimum-time problem
+
+The course will study linear controlled systems of the form
+
+$$
+\dot x=Ax+u,
+\qquad u(t)\in U,
+$$
+
+and transfers from an initial set to a terminal set
+in minimum time.
+
+In applications it is also convenient to write
+
+$$
+\dot x=Ax+Bv,
+\qquad v(t)\in V.
+$$
+
+Here the admissible forcing set in the first notation
+can be taken as $U=BV$.
+
+The next lectures develop the mathematical tools needed
+to analyze such problems.
+
+## Exercises
+
+1. Rewrite $\ddot y+y=u$ as a first-order system.
+2. Identify the state, control set, initial set,
+   terminal set, and objective for the oscillator problem.
+3. Explain why $u(t)=0$ cannot transfer a nonzero
+   oscillator state to the origin.
+4. For a constant control $u=a$, determine the equilibrium.
+5. Show that trajectories under constant $a$ satisfy
+
+   $$
+   (x_1-a)^2+x_2^2=\text{constant}.
+   $$
+
+6. Compare a minimum-time objective with a fixed-time
+   minimum-energy objective.
+
+## Laboratory
+
+The accompanying notebook investigates candidate controls
+and illustrates the difference between feasibility
+and optimality.

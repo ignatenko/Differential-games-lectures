@@ -1,0 +1,110 @@
+---
+title: "Course outline"
+---
+
+This preliminary outline combines mathematical reading,
+lectures, and computational laboratories. The pace and selection
+of advanced topics may change as the materials develop.
+
+## Part I. Foundations of optimal control
+
+### 1. Controlled dynamical systems
+
+- States, controls, and admissible trajectories.
+- Linear systems and the solution formula.
+- Exact propagation under piecewise-constant controls.
+
+Laboratory: simulate the integrator and double integrator;
+compare analytical and numerical trajectories.
+
+[Lecture 1. Formulation of an Optimal Control Problem](lectures/lecture-01.qmd)
+
+### 2. Reachable sets and controllability
+
+- Fixed-time reachable sets.
+- Convex geometry and supporting directions.
+- Controllability versus bounded-control reachability.
+
+Laboratory: construct reachable sets, explore their boundaries,
+and test target feasibility.
+
+### 3. Minimum-time control
+
+- Earliest arrival at a target.
+- Bang-bang controls and switching geometry.
+- Analytical reference solutions.
+
+Laboratory: solve the double-integrator minimum-time problem
+and compare analytical and numerical results.
+
+### 4. Objectives and numerical optimization
+
+- Minimum time, minimum energy, and tracking.
+- Terminal constraints and penalty formulations.
+- Discretized controls and numerical optimization.
+
+Laboratory: compare objectives under the same dynamics and
+control constraints.
+
+## Part II. From optimal control to differential games
+
+### 5. Adversarial control
+
+- Pursuer and evader objectives.
+- Controls, feedback policies, and information patterns.
+- Guaranteed outcomes versus optimal outcomes.
+
+### 6. Constructive pursuit methods
+
+- Pontryagin's direct pursuit methods.
+- Pshenychnyi and group pursuit.
+- Chikrii's resolving-functions approach.
+- Sufficient capture conditions and guaranteed-time bounds.
+
+### 7. Positional strategies
+
+- Krasovskii–Subbotin framework.
+- Stable bridges and extremal aiming.
+- Numerical approximation and strategy realization.
+
+## Part III. Value functions and computation
+
+### 8. Dynamic programming and Hamilton–Jacobi equations
+
+- HJB and HJI formulations.
+- Boundary and terminal conditions.
+- Verification and nonsmooth value functions.
+
+### 9. Strategy evaluation
+
+- Common benchmark problems.
+- Opponent collections and approximate best responses.
+- Sensitivity, discretization, and reproducibility.
+
+## Part IV. Learning-based methods
+
+### 10. Learning controllers and value functions
+
+- Supervised approximation of known solutions.
+- Closed-loop evaluation.
+- Neural value-function approximation.
+- Adversarial training and its limitations.
+
+## Prerequisites
+
+The course assumes familiarity with:
+
+- Linear algebra.
+- Multivariable calculus.
+- Ordinary differential equations.
+- Basic Python programming.
+
+Additional mathematical tools will be introduced when needed.
+
+## Reading
+
+The initial reading follows Blagodatskikh and selected material
+from Evans. Later topics use specialized differential-games
+references.
+
+See the [sources page](sources.qmd) for the developing bibliography.
