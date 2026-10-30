@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  description: "Lecture notes on optimal control and differential games"
+  site-url: "https://ignatenko.github.io/Differential-games-lectures/"
+  title: "QuartoMy"
+
+  navbar:
+    right:
+      - about.qmd
+
+      - icon: github
+        href: "https://ignatenko.github.io/Differential-games-lectures/"
+
+      - icon: bluesky
+        href: "https://bsky.app/"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
